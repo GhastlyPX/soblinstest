@@ -9,20 +9,20 @@ import { ScheduleModule } from '@nestjs/schedule';
 
 @Module({
   imports: [
-    BullModule.forRoot({
-      redis: {
-        host: 'localhost',
-        port: 6379,
-      },
-    }),
-    // BullModule.forRoot({
-    //   redis: {
-    //     tls: {
-    //       rejectUnauthorized: false,
-    //     },
-    //   },
-    //   url: process.env.REDIS_URL,
-    // }),
+    //BullModule.forRoot({
+      //redis: {
+        //host: 'localhost',
+        //port: 6379,
+      //},
+    //}),
+     BullModule.forRoot({
+       redis: {
+        tls: {
+          rejectUnauthorized: false,
+         },
+       },
+       url: process.env.REDIS_URL,
+     }),
     ScheduleModule.forRoot(),
     // BullBoardModule.forRoot({
     //   route: '/',
